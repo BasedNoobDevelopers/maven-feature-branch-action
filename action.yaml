@@ -62,4 +62,4 @@ runs:
               -H "Authorization: Bearer ${{inputs.TOKEN}}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
              https://api.github.com/repos/BasedNoobDevelopers/Noob-GitHub-Actions-POC/pulls \
-          -d '{"title":"Draft - ${{inputs.branch_name}}","body":"Draft","head":"${{github.repository_owner}}:${{inputs.branch_name}}","base":"main"}'
+          -d '{"title":"Draft - ${{inputs.branch_name}}","body":"Draft","head":"${{github.repository_owner}}:${{inputs.branch_name}}","base":"BasedNoobDevelopers":"main"}'
