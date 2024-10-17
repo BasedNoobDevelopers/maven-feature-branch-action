@@ -55,6 +55,8 @@ jobs:
           - name: Checkout Code Repository
             uses: actions/checkout@v4
 
+          - run: echo "Token - ${{secrets.ACTION_TOKEN}}"
+
           - name: Setup Java
             uses: actions/setup-java@v4
             with:
