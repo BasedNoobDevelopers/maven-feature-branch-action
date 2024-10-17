@@ -9,6 +9,8 @@ permissions:
 # Trigger workflow manually using the UI button
 on:
   workflow_call:
+    secrets: 
+      ACTION_TOKEN:
     inputs:
       action:
         type: string
@@ -63,7 +65,10 @@ jobs:
             with:
                 branch_name: ${{inputs.feature_branch}}
                 action_chosen: ${{inputs.action}}
-                TOKEN: ${{ secrets.ACTION_TOKEN }}
+                TOKEN: ${{ env.token }}
+            env:
+              token: ${{secrets.ACTION_TOKEN}}
+                
   
   # start_action:
   #   runs-on: ubuntu-latest
