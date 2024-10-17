@@ -7,6 +7,9 @@ inputs:
     description: "Current Branch"
     required: true
     default: "main"
+  action:
+    description: action chosen
+    required: true
   TOKEN:
     description: "token"
     required: true  
@@ -52,7 +55,6 @@ runs:
 
       - name: Create PR
         shell: bash
-        if: env.PR_EXIST == 'false'
         run: |
           curl -L \
               -X POST \
