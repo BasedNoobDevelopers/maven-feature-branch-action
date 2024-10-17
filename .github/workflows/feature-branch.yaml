@@ -63,7 +63,7 @@ jobs:
             with:
                 branch_name: ${{inputs.feature_branch}}
                 action_chosen: ${{inputs.action}}
-                TOKEN: ${{ secrets.ACTION_TOKEN || 'UYI'}}
+                TOKEN: ${{ secrets.ACTION_TOKEN }}
   
   # start_action:
   #   runs-on: ubuntu-latest
