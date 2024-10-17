@@ -57,8 +57,9 @@ jobs:
           - name: Build IKMDEV Code
             uses: BasedNoobDevelopers/maven-feature-branch-action@main
             with:
-                action: ${{inputs.action}}
+                actions: ${{inputs.action}}
                 branch_name: ${{inputs.feature_branch}}
+                TOKEN: ${{secrets.GITHUB_TOKEN}}
   
   start_action:
     runs-on: ubuntu-latest

@@ -7,7 +7,7 @@ inputs:
     description: "Current Branch"
     required: true
     default: "main"
-  action:
+  actions:
     description: action chosen
     required: true
   TOKEN:
