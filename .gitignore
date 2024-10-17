@@ -3,7 +3,7 @@
 ###################
 # Compiled class file
 *.class
-
+key.txt
 # Log file
 logs/
 *.log
