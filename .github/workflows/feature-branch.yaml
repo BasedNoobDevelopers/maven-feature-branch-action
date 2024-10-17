@@ -22,26 +22,26 @@ env:
 
 # Define jobs within the workflow
 jobs:
-  check_if_pr:
-    runs-on: ubuntu-latest
-    name: Check If PR Exist For Branch
-    if: github.event.inputs.feature_branch != ''
-    steps:
+  # check_if_pr:
+  #   runs-on: ubuntu-latest
+  #   name: Check If PR Exist For Branch
+  #   if: github.event.inputs.feature_branch != ''
+  #   steps:
 
-      - name: Get Pull Request
-        id: getPRList
-        uses: OmOmofonmwan/get-pr-number-based-off-branch-name@main
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          repository: ${{github.repository}}
-          branch_name: ${{env.FEATURE_BRANCH}}
+  #     - name: Get Pull Request
+  #       id: getPRList
+  #       uses: OmOmofonmwan/get-pr-number-based-off-branch-name@main
+  #       with:
+  #         github_token: ${{secrets.GITHUB_TOKEN}}
+  #         repository: ${{github.repository}}
+  #         branch_name: ${{env.FEATURE_BRANCH}}
 
-      - name: Update PR Environment Variables
-        if: steps.getPRList.outputs.pr_exists == 'true'
-        run: |
-          echo "PR_EXIST=true" >> $GITHUB_ENV
-          echo "PR_URL=${{steps.getPRList.outputs.pr_url}}" >> $GITHUB_ENV
-          echo "PR_HTML_URL=${{steps.getPRList.outputs.pr_html_url}}" >> $GITHUB_ENV
+  #     - name: Update PR Environment Variables
+  #       if: steps.getPRList.outputs.pr_exists == 'true'
+  #       run: |
+  #         echo "PR_EXIST=true" >> $GITHUB_ENV
+  #         echo "PR_URL=${{steps.getPRList.outputs.pr_url}}" >> $GITHUB_ENV
+  #         echo "PR_HTML_URL=${{steps.getPRList.outputs.pr_html_url}}" >> $GITHUB_ENV
 
   call_composite_actions:
     runs-on: ubuntu-latest
@@ -57,8 +57,8 @@ jobs:
           - name: Build IKMDEV Code
             uses: BasedNoobDevelopers/maven-feature-branch-action@main
             with:
-                action_chosen: ${{inputs.action}}
                 branch_name: ${{inputs.feature_branch}}
+                action_chosen: ${{inputs.action}}
                 TOKEN: ${{secrets.GITHUB_TOKEN}}
   
   start_action:
